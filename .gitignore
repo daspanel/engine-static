@@ -8,6 +8,7 @@ data/
 docker-compose.dev.yml
 daspanel.dev.env
 smtp.dev.env
+buildlog.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
