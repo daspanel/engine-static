@@ -1,4 +1,3 @@
-
 version: '2'
 services:
     daspanel-engine-static:
@@ -7,19 +6,12 @@ services:
             dockerfile: Dockerfile
         image: daspanel/engine-static
         volumes:
-            - daspanel-data:/opt/daspanel/data
+            - ./data:/opt/daspanel/data
         networks:
             - frontend
             - backend
         env_file:
             - daspanel.env
-            - smtp.env
-
-volumes:
-    daspanel-data:
-        external:
-            name: daspanel-data
-
 networks:  
   frontend:
     driver: bridge

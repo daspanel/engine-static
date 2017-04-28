@@ -25,11 +25,12 @@ LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.name="engine-static" \
       org.label-schema.description="This service provides HTTP static engine daemon to Daspanel."
 
-ARG CADDY_PLUGINS="http.cors,http.expires,http.ipfilter,http.minify,http.ratelimit,http.realip"
+ARG CADDY_PLUGINS="http.cors,http.expires,http.ipfilter,http.minify,http.ratelimit,http.realip,tls.dns.cloudflare,tls.dns.digitalocean,tls.dns.linode,tls.dns.route53"
 ARG CADDY_URL="https://caddyserver.com/download/linux/amd64?plugins=${CADDY_PLUGINS}"
 
 RUN set -x \
 
+    && apk --update --no-cache add --virtual=build_deps curl \
     && apk add --no-cache --update libcap mailcap \
     && curl --silent --show-error --fail --location \
         --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
@@ -37,6 +38,7 @@ RUN set -x \
         | tar --no-same-owner -C /usr/sbin/ -xz caddy \
     && chmod 0755 /usr/sbin/caddy \
     && setcap "cap_net_bind_service=+ep" /usr/sbin/caddy \
+    && apk del build_deps \
     && rm -rf \
         /var/cache/apk/* \
         /tmp/src \

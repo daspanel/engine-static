@@ -149,11 +149,11 @@ docker-build: .release
 	@DOCKER_MAJOR=$(shell docker -v | sed -e 's/.*version //' -e 's/,.*//' | cut -d\. -f1) ; \
 	DOCKER_MINOR=$(shell docker -v | sed -e 's/.*version //' -e 's/,.*//' | cut -d\. -f2) ; \
 	if [ $$DOCKER_MAJOR -eq 1 ] && [ $$DOCKER_MINOR -lt 10 ] ; then \
-		echo docker tag -f $(IMAGE):$(VERSION) $(IMAGE):latest ;\
-		docker tag -f $(IMAGE):$(VERSION) $(IMAGE):latest ;\
+		echo docker tag -f $(IMAGE_LOCAL):$(VERSION) $(IMAGE_LOCAL):latest ;\
+		docker tag -f $(IMAGE_LOCAL):$(VERSION) $(IMAGE_LOCAL):latest ;\
 	else \
-		echo docker tag $(IMAGE):$(VERSION) $(IMAGE):latest ;\
-		docker tag $(IMAGE):$(VERSION) $(IMAGE):latest ; \
+		echo docker tag $(IMAGE_LOCAL):$(VERSION) $(IMAGE_LOCAL):latest ;\
+		docker tag $(IMAGE_LOCAL):$(VERSION) $(IMAGE_LOCAL):latest ; \
 	fi
 
 .release:
