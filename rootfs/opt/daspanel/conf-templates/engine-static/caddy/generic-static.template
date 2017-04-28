@@ -1,0 +1,17 @@
+# SITE NAME = {{ (getenv "SITEINFO" | json).sitedescription }}
+# SITE TYPE = {{ (getenv "SITECFG" | json).sitetype }}
+{{ (getenv "SITECFG" | json).name }} {
+    errors stdout
+    log / stdout "[DASPANEL-HTTP-ACCESSLOG] {>Referer} {remote} {when} {method} {uri} {proto} {status} {size} {>User-Agent} {latency} {request}" 
+    root /opt/daspanel/data/{{ getenv "DASPANEL_SYS_UUID" }}/{{ (getenv "SITECFG" | json).dir }}
+    expires {
+        match .jpg$ 30i
+        match .png$ 30i
+        match .css$ 30i
+        match .js$ 30i
+    }
+    minify
+    gzip
+    tls self_signed
+}
+
