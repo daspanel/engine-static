@@ -10,7 +10,6 @@
         match .css$ 30i
         match .js$ 30i
     }
-    minify
     gzip
     tls self_signed
 }

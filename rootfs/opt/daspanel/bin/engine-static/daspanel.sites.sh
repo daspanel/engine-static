@@ -1,14 +1,11 @@
 #!/bin/sh
-export DASPANEL_SYS_HOSTNAME=`cat /opt/daspanel/data/$DASPANEL_SYS_UUID/db/sysconfig.json | /usr/bin/jq -r '.sys.hostname'`
-export DASPANEL_SYS_APISERVER=`cat /opt/daspanel/data/$DASPANEL_SYS_UUID/db/sysconfig.json | /usr/bin/jq -r '.sys.apiserver'`
 content=$(wget -O- --header=Content-Type:application/json --header="Authorization: $DASPANEL_SYS_UUID" "$DASPANEL_SYS_APISERVER/sites/httpconf/$DASPANEL_SYS_HOSTNAME")
-engine=$DASPANEL_HTTP_ENGINE
-echo "[DASPANEL-ENGINE] INFO Processing site templates for engine: $engine"
+echo "[DASPANEL-ENGINE] INFO Processing site templates for engine: $ENGINE"
 
 # Remove all config of SITES-AVAILBLE FOR this engine
 rm /etc/caddy/sites-enabled/*
 rm /etc/caddy/sites-available/*
-
+echo $content
 # Generate new configs
 echo $content | jq -rc '.[]' | while IFS='' read site;do
     siteuuid=$(echo "$site" | jq -r ._cuid)
@@ -16,11 +13,11 @@ echo $content | jq -rc '.[]' | while IFS='' read site;do
     configs=$(echo $site | jq -r .configs )
     echo $configs | jq -rc '.[]' | while IFS='' read sitecfg;do
         siteengine=$(echo "$sitecfg" | jq -r .engine)
-        if [ "$siteengine" == "$engine" ]; then
+        if [ "$siteengine" == "$ENGINE" ]; then
             sitetype=$(echo "$sitecfg" | jq -r .sitetype)
             template=""
-            template1="/opt/daspanel/data/$DASPANEL_SYS_UUID/conf-templates/engine-$engine/caddy/$sitetype-$siteengine.template"
-            template2="/opt/daspanel/conf-templates/engine-$engine/caddy/$sitetype-$siteengine.template"
+            template1="/opt/daspanel/data/$DASPANEL_SYS_UUID/conf-templates/engine-$ENGINE/caddy/$sitetype-$siteengine.template"
+            template2="/opt/daspanel/conf-templates/engine-$ENGINE/caddy/$sitetype-$siteengine.template"
             if [ -f "$template1" ]; then
                 template=$template1
             else
@@ -40,6 +37,8 @@ echo $content | jq -rc '.[]' | while IFS='' read site;do
                     >> /etc/caddy/sites-available/$siteuuid.conf
             fi
             # do your processing here
+        else
+            echo "[DASPANEL-ENGINE] Ignoring sites of engine $siteengine: $0"
         fi
     done
     if [ "$siteenabled" = true ] ; then
