@@ -48,4 +48,4 @@ RUN set -x \
 COPY rootfs /
 
 # Expose ports for the service
-EXPOSE 80 443
+EXPOSE 443
