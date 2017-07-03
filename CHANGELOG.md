@@ -4,13 +4,28 @@
 __Changes__
 
 
-Released by N/A, Wed 07 Jun 2017 -
+Released by N/A, Mon 03 Jul 2017 -
 [see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
+______________
+
+### 0.5.0
+__Changes__
+
+- bumped to version 0.5.0
+- Removed dependence from daspanel/alpine-base.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Mon 03 Jul 2017 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/0.4.0...0.5.0#diff)
 ______________
 
 ### 0.4.0
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.4.0
 - Implemented the use of self signed SSL certificates as well as valid certificates signed by LetsEncrypt. Valid certificates are only used if the value of DASPANEL_SYS_HOSTNAME is not equal to 'daspanel.site'
 - Changed way as Caddy reloads vhosts from caddyfile as instructed in https://caddyserver.com/blog/certificate-management-policies
