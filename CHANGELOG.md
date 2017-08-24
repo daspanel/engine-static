@@ -4,13 +4,28 @@
 __Changes__
 
 
-Released by N/A, Mon 03 Jul 2017 -
+Released by N/A, Thu 24 Aug 2017 -
 [see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
+______________
+
+### 0.6.0
+__Changes__
+
+- bumped to version 0.6.0
+- Site templates use data from API call.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Thu 24 Aug 2017 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/0.5.0...0.6.0#diff)
 ______________
 
 ### 0.5.0
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.5.0
 - Removed dependence from daspanel/alpine-base.
 
