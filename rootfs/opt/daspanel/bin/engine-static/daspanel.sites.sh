@@ -32,7 +32,8 @@ echo $content | /opt/daspanel/bin/jq -rc '.[]' | while IFS='' read site;do
                 export SITEINFO=$site
                 export SITECFG=$sitecfg
                 echo "[DASPANEL-$DASPANEL_CONTAINER_TYPE] INFO Processing site $siteuuid template: $template"
-                /opt/daspanel/bin/gomplate \
+                /opt/daspanel/bin/gomplate -d cfg=$DASPANEL_SYS_APISERVER/tenants/$DASPANEL_SYS_UUID \
+                    -H "cfg=Authorization: $DASPANEL_SYS_APIKEY" \
                     < $template \
                     >> /etc/caddy/sites-available/$siteuuid.conf
             fi
