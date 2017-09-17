@@ -1,12 +1,29 @@
+FROM golang:1.9-alpine as builder-caddy
+LABEL maintainer="ulrich.schreiner@gmail.com"
+
+ENV CADDY_VERSION v0.10.9
+
+# Inject files in container file system
+COPY caddy-build /caddy-build
+
+RUN apk --no-cache update \
+    && apk --no-cache --update add git bash \
+    && cd /caddy-build \
+    && env OS=linux ARCH=amd64 ./build_caddy.sh \
+    && ls -la /caddy-build/caddy
+
 FROM alpine:3.6
 MAINTAINER Abner G Jacobsen - http://daspanel.com <admin@daspanel.com>
+
+# Copy bynaries build before
+COPY --from=builder-caddy /caddy-build/caddy /usr/sbin/caddy
 
 # Parse Daspanel common arguments for the build command.
 ARG VERSION
 ARG VCS_URL
 ARG VCS_REF
 ARG BUILD_DATE
-ARG S6_OVERLAY_VERSION=v1.19.1.1
+ARG S6_OVERLAY_VERSION=v1.20.0.0
 ARG DASPANEL_IMG_NAME=engine-static
 ARG DASPANEL_OS_VERSION=alpine3.6
 
@@ -65,10 +82,10 @@ RUN set -x \
     && rm -f /tmp/s6-overlay.tar.gz \
 
     # Install Caddy
-    && curl --silent --show-error --fail --location \
-        --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
-        "${CADDY_URL}" \
-        | tar --no-same-owner -C /usr/sbin/ -xz caddy \
+    #&& curl --silent --show-error --fail --location \
+    #    --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
+    #    "${CADDY_URL}" \
+    #    | tar --no-same-owner -C /usr/sbin/ -xz caddy \
     && chmod 0755 /usr/sbin/caddy \
     && setcap "cap_net_bind_service=+ep" /usr/sbin/caddy \
 
