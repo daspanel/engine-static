@@ -1,7 +1,7 @@
 FROM golang:1.9-alpine as builder-caddy
 LABEL maintainer="ulrich.schreiner@gmail.com"
 
-ENV CADDY_VERSION v0.10.9
+ENV CADDY_VERSION v0.10.10
 
 # Inject files in container file system
 COPY caddy-build /caddy-build
