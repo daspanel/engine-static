@@ -83,6 +83,7 @@ RUN set -x \
 
     # Install specific OS packages needed by this image
     && sh /opt/daspanel/bootstrap/${DASPANEL_OS_VERSION}/99_install_pkgs "git" \
+    && sh /opt/daspanel/bootstrap/${DASPANEL_OS_VERSION}/99_install_pkgs "ttyd" \
 
     # Install Caddy
     && chmod 0755 /usr/sbin/caddy \
