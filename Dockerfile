@@ -12,7 +12,7 @@ RUN apk --no-cache update \
     && env OS=linux ARCH=amd64 ./build_caddy.sh \
     && ls -la /caddy-build/caddy
 
-FROM alpine:3.6
+FROM daspanel/engine-base-dev:dev
 MAINTAINER Abner G Jacobsen - http://daspanel.com <admin@daspanel.com>
 
 # Copy bynaries build before
@@ -81,11 +81,10 @@ RUN set -x \
     && tar xvfz /tmp/s6-overlay.tar.gz -C / \
     && rm -f /tmp/s6-overlay.tar.gz \
 
+    # Install specific OS packages needed by this image
+    && sh /opt/daspanel/bootstrap/${DASPANEL_OS_VERSION}/99_install_pkgs "git" \
+
     # Install Caddy
-    #&& curl --silent --show-error --fail --location \
-    #    --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
-    #    "${CADDY_URL}" \
-    #    | tar --no-same-owner -C /usr/sbin/ -xz caddy \
     && chmod 0755 /usr/sbin/caddy \
     && setcap "cap_net_bind_service=+ep" /usr/sbin/caddy \
 
