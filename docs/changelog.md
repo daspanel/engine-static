@@ -8,9 +8,24 @@ Released by N/A, Mon 23 Oct 2017 -
 [see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
 ______________
 
+### 0.8.1
+__Changes__
+
+- bumped to version 0.8.1
+- Added ttyd.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Mon 23 Oct 2017 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/0.8.0...0.8.1#diff)
+______________
+
 ### 0.8.0
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.8.0
 - Using an intermediate image to add development packages that must be available at run time executation.
 - Upgraded caddy to version 0.10.10
