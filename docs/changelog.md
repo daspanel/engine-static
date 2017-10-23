@@ -1,8 +1,32 @@
 # Changelog - admindaspanel / engine-static
 
+### engine-static-0.2.0
+__Changes__
+
+
+Released by N/A, Mon 23 Oct 2017 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
+______________
+
+### 0.8.0
+__Changes__
+
+- bumped to version 0.8.0
+- Using an intermediate image to add development packages that must be available at run time executation.
+- Upgraded caddy to version 0.10.10
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Mon 23 Oct 2017 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/0.7.0...0.8.0#diff)
+______________
+
 ### 0.7.0
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.7.0
 - The Caddy server is, from now on, compiled from sources and is no longer downloaded as a binary - as required by Caddy's new licensing rules. Caddy was also upgraded to version v0.10.9.
 
@@ -12,14 +36,6 @@ __Contributors__
 
 Released by Abner G Jacobsen, Sat 16 Sep 2017 -
 [see the diff](https://github.com/admindaspanel/engine-static/compare/0.6.0...0.7.0#diff)
-______________
-
-### engine-static-0.2.0
-__Changes__
-
-
-Released by N/A, Sat 16 Sep 2017 -
-[see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
 ______________
 
 ### 0.6.0
