@@ -38,9 +38,11 @@ export ENGINE="static"
 
 cd /opt/daspanel/data/$DASPANEL_SYS_UUID/content
 
-exec su-exec daspanel:daspanel /usr/bin/ttyd \
-    --interface lo \
-    --port 7681 \
-    -c $CONSOLE_ADMIN:$CONSOLE_PWD sh
-
+exec su-exec daspanel:daspanel /usr/sbin/gotty \
+    --address=127.0.0.1 \
+    --port=7681 \
+    --permit-write \
+    --ws-origin ".*" \
+    --title-format="Daspanel Console (engine-$ENGINE) - $DASPANEL_SYS_HOSTNAME" \
+    --credential=$CONSOLE_ADMIN:$CONSOLE_PWD /opt/daspanel/bin/engine-static/daspanel-console
 

@@ -28,8 +28,7 @@ ARG DASPANEL_IMG_NAME=engine-static
 ARG DASPANEL_OS_VERSION=alpine3.6
 
 # Parse Container specific arguments for the build command.
-ARG CADDY_PLUGINS="http.cors,http.expires,http.realip,http.filemanager"
-ARG CADDY_URL="https://caddyserver.com/download/linux/amd64?plugins=${CADDY_PLUGINS}"
+ARG GOTTY_URL="https://github.com/yudai/gotty/releases/download/pre-release/gotty_2.0.0-alpha.2_linux_amd64.tar.gz"
 
 # Set default env variables
 ENV \
@@ -52,7 +51,7 @@ LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.name="daspanel/engine-static" \
       org.label-schema.description="This service provides HTTP static engine server to Daspanel sites."
 
-
+ENV TERM=xterm-256color
 ENV VAR_PREFIX=/var/run
 ENV LOG_PREFIX=/var/log/caddy
 ENV TEMP_PREFIX=/tmp
@@ -83,7 +82,15 @@ RUN set -x \
 
     # Install specific OS packages needed by this image
     && sh /opt/daspanel/bootstrap/${DASPANEL_OS_VERSION}/99_install_pkgs "git" \
-    && sh /opt/daspanel/bootstrap/${DASPANEL_OS_VERSION}/99_install_pkgs "ttyd" \
+
+    # Install gotty
+    && curl --silent --show-error --fail --location \
+        --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o /tmp/gotty.tar.gz \
+        "${GOTTY_URL}" \
+    && tar -C /usr/sbin -xvzf /tmp/gotty.tar.gz \
+    && chmod 0755 /usr/sbin/gotty \
+    && mkdir /lib64 \
+    && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2 \
 
     # Install Caddy
     && chmod 0755 /usr/sbin/caddy \
