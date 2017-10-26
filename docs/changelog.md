@@ -4,13 +4,29 @@
 __Changes__
 
 
-Released by N/A, Mon 23 Oct 2017 -
+Released by N/A, Thu 26 Oct 2017 -
 [see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
+______________
+
+### 0.9.0
+__Changes__
+
+- bumped to version 0.9.0
+- Open console with gotty using parameters received by URL.
+- Replaced ttyd by gotty to enable a better end user experience.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Thu 26 Oct 2017 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/0.8.2...0.9.0#diff)
 ______________
 
 ### 0.8.2
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.8.2
 - Added in caddy template proxy redirects for web console.
 
