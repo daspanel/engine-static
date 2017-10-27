@@ -44,5 +44,5 @@ exec su-exec daspanel:daspanel /usr/sbin/gotty \
     --permit-write \
     --ws-origin ".*" \
     --title-format="Daspanel Console (engine-$ENGINE) - $DASPANEL_SYS_HOSTNAME" \
-    --credential=$CONSOLE_ADMIN:$CONSOLE_PWD /opt/daspanel/bin/engine-static/daspanel-console
+    --credential=$CONSOLE_ADMIN:$CONSOLE_PWD /opt/daspanel/bin/engine-$ENGINE/daspanel-console
 
