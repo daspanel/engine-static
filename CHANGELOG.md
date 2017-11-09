@@ -1,8 +1,31 @@
 # Changelog - admindaspanel / engine-static
 
+### 0.11.0
+__Changes__
+
+- bumped to version 0.11.0
+- Fix parameters received. The second must be the dir of the site.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Wed 08 Nov 2017 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/0.10.0...0.11.0#diff)
+______________
+
+### engine-static-0.2.0
+__Changes__
+
+
+Released by N/A, Wed 08 Nov 2017 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
+______________
+
 ### 0.10.0
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.10.0
 - Opened port 8080 and 3000 for use with dev node servers.
 
@@ -12,14 +35,6 @@ __Contributors__
 
 Released by Abner G Jacobsen, Wed 08 Nov 2017 -
 [see the diff](https://github.com/admindaspanel/engine-static/compare/0.9.1...0.10.0#diff)
-______________
-
-### engine-static-0.2.0
-__Changes__
-
-
-Released by N/A, Wed 08 Nov 2017 -
-[see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
 ______________
 
 ### 0.9.1
