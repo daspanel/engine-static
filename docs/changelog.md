@@ -1,8 +1,31 @@
 # Changelog - admindaspanel / engine-static
 
+### 0.12.1
+__Changes__
+
+- bumped to version 0.12.1
+- Improved support for temporary servers running on ports 3000 and 8080. Such as those that are started using the 'npm run dev' command on the web console.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Mon 27 Nov 2017 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/0.12.0...0.12.1#diff)
+______________
+
+### engine-static-0.2.0
+__Changes__
+
+
+Released by N/A, Mon 27 Nov 2017 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
+______________
+
 ### 0.12.0
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.12.0
 - Changed the way the root directory is configured.
 
@@ -12,14 +35,6 @@ __Contributors__
 
 Released by Abner G Jacobsen, Wed 22 Nov 2017 -
 [see the diff](https://github.com/admindaspanel/engine-static/compare/0.11.0...0.12.0#diff)
-______________
-
-### engine-static-0.2.0
-__Changes__
-
-
-Released by N/A, Wed 22 Nov 2017 -
-[see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
 ______________
 
 ### 0.11.0
