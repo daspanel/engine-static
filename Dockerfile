@@ -28,7 +28,7 @@ ARG DASPANEL_IMG_NAME=engine-static
 ARG DASPANEL_OS_VERSION=alpine3.6
 
 # Parse Container specific arguments for the build command.
-ARG GOTTY_URL="https://github.com/yudai/gotty/releases/download/pre-release/gotty_2.0.0-alpha.2_linux_amd64.tar.gz"
+ARG GOTTY_URL="https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_amd64.tar.gz"
 
 # Set default env variables
 ENV \
