@@ -1,8 +1,31 @@
 # Changelog - admindaspanel / engine-static
 
+### 0.12.4
+__Changes__
+
+- bumped to version 0.12.4
+- Added python3, pipenv and ENV varialve SHELL.
+
+__Contributors__
+
+- Abner G Jacobsen
+
+Released by Abner G Jacobsen, Wed 17 Jan 2018 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/0.12.3...0.12.4#diff)
+______________
+
+### engine-static-0.2.0
+__Changes__
+
+
+Released by N/A, Wed 17 Jan 2018 -
+[see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
+______________
+
 ### 0.12.3
 __Changes__
 
+- See changes in CHANGELOG.md
 - bumped to version 0.12.3
 - Updated Gotty version.
 
@@ -12,14 +35,6 @@ __Contributors__
 
 Released by Abner G Jacobsen, Thu 04 Jan 2018 -
 [see the diff](https://github.com/admindaspanel/engine-static/compare/0.12.2...0.12.3#diff)
-______________
-
-### engine-static-0.2.0
-__Changes__
-
-
-Released by N/A, Thu 04 Jan 2018 -
-[see the diff](https://github.com/admindaspanel/engine-static/compare/...#diff)
 ______________
 
 ### 0.12.2
