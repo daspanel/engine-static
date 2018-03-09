@@ -57,6 +57,11 @@ ENV LOG_PREFIX=/var/log/caddy
 ENV TEMP_PREFIX=/tmp
 ENV CACHE_PREFIX=/var/cache
 
+# Solves: https://github.com/wp-cli/wp-cli/issues/4246#issuecomment-325774849
+# less: unrecognized option: r
+# BusyBox v1.26.2 (2017-06-11 06:38:32 GMT) multi-call binary.
+ENV PAGER='more' 
+
 # Inject files in container file system
 COPY rootfs /
 
