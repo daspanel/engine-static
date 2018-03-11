@@ -23,7 +23,7 @@ ARG VERSION
 ARG VCS_URL
 ARG VCS_REF
 ARG BUILD_DATE
-ARG S6_OVERLAY_VERSION=v1.21.40.0
+ARG S6_OVERLAY_VERSION=v1.21.4.0
 ARG DASPANEL_IMG_NAME=engine-static
 ARG DASPANEL_OS_VERSION=alpine3.6
 
@@ -86,7 +86,7 @@ RUN set -x \
     && rm -f /tmp/s6-overlay.tar.gz \
 
     # Install specific OS packages needed by this image
-    && sh /opt/daspanel/bootstrap/${DASPANEL_OS_VERSION}/99_install_pkgs "git python3 python3-dev mariadb-dev" \
+    && sh /opt/daspanel/bootstrap/${DASPANEL_OS_VERSION}/99_install_pkgs "git zip python3 python3-dev mariadb-dev" \
     && python3 -m ensurepip \
     && rm -r /usr/lib/python*/ensurepip \
     && pip3 install --no-cache-dir --upgrade pip setuptools \
